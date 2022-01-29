@@ -1,0 +1,12 @@
+
+g	java:S112P"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8³â¸•æ/
+A
+java:S1452="&Remove usage of generic wildcard type.( ñŠ‡üÿÿÿÿ
+A
+java:S1452C"&Remove usage of generic wildcard type.(…«¢¡ıÿÿÿÿ
+B
+java:S1602h",Remove useless curly braces around statement(åõİ
+b
+java:S2637o"MParameter 1 to this call is marked "lombok.NonNull" but null could be passed.(Š³¿u
+b
+java:S2637b"MParameter 1 to this call is marked "lombok.NonNull" but null could be passed.(Š³¿u
