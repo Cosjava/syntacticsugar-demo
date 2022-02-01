@@ -48,7 +48,7 @@ public interface ConferenceMapper {
                 track = TrackEnum.DEVELOPPEUR;
                 break;
             default:
-                track = TrackEnum.ALL;
+                return TrackEnum.ALL;
         }
         return track;
     }
