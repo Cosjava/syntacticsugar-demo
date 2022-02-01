@@ -31,9 +31,6 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 //@EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL_FORMS)
 public class ConferenceController {
 
-    //TODO TU
-    //TODO save in git
-
     private static final String REL_CONFERENCES = "conferences";
     private static final String REL_STATISTICS = "statistiques";
     private static final String REL_PREPARATION = "preparation";
