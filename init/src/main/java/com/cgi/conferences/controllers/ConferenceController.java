@@ -2,7 +2,6 @@ package com.cgi.conferences.controllers;
 
 import com.cgi.conferences.models.dtos.ParentConferenceDTO;
 import com.cgi.conferences.models.dtos.PostConferenceDTO;
-import com.cgi.conferences.models.dtos.StatisticsDTO;
 import com.cgi.conferences.models.entities.ConferenceEntity;
 import com.cgi.conferences.models.mappers.ConferenceMapper;
 import com.cgi.conferences.models.projections.StatsByPersonneProjection;
@@ -11,8 +10,7 @@ import com.cgi.conferences.repositories.ConferenceRepository;
 import com.cgi.conferences.services.PrepareConferenceService;
 import com.cgi.conferences.services.StatistiquesService;
 import lombok.NonNull;
-import lombok.extern.log4j.Log4j;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -23,13 +21,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
-@Log4j
+@Slf4j
 @RestController
 //@EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL_FORMS)
 public class ConferenceController {
