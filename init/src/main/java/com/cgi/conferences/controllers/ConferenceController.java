@@ -120,10 +120,10 @@ public class ConferenceController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/supervision")
+/*    @GetMapping("/supervision")
     public List<StatisticsDTO> getSupervision() {
         return statistiquesService.calculateStats();
-    }
+    }*/
 
     private ParentConferenceDTO addOneConfLinks(ParentConferenceDTO conf) {
         return conf.add(linkTo(methodOn(ConferenceController.class).getConferencePreparation(conf.getIdentifiant())).withRel(REL_PREPARATION),
