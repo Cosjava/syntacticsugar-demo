@@ -18,7 +18,6 @@ public class PrepareConferenceService {
             }
             case AtelierDTO atelier -> atelier.prepareSalle();
             case ConferenceDTO conference -> conference.prepareAtelier();
-            case ParentConferenceDTO p -> null;
         };
     }
 }
