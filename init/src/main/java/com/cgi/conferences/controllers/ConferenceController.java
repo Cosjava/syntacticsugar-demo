@@ -11,6 +11,8 @@ import com.cgi.conferences.repositories.ConferenceRepository;
 import com.cgi.conferences.services.PrepareConferenceService;
 import com.cgi.conferences.services.StatistiquesService;
 import lombok.NonNull;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -27,6 +29,7 @@ import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
+@Log4j
 @RestController
 //@EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL_FORMS)
 public class ConferenceController {
