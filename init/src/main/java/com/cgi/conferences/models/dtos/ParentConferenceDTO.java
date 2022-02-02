@@ -4,7 +4,6 @@ import com.cgi.conferences.models.enums.CategorieEnum;
 import com.cgi.conferences.models.enums.TrackEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.experimental.SuperBuilder;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.time.LocalDateTime;
