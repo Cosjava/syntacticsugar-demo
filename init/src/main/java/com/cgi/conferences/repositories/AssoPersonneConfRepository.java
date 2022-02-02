@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface AssoPersonneConfRepository extends JpaRepository<AssoPersonneConfEntity, AssoPersonneConfKey> {
-    @Query("select new com.cgi.conferences.models.projections.StatsByPersonneProjection(c.personne.nom, count(c.assoPersonneConfKey.idConference) ) "
-            + " from AssoPersonneConfEntity c group by c.assoPersonneConfKey.idPersonne")
+    @Query("select new com.cgi.conferences.models.projections.StatsByPersonneProjection(c.personne.nom as nom, count(c.assoPersonneConfKey.idConference) as stat) "
+            + " from AssoPersonneConfEntity c group by c.assoPersonneConfKey.idPersonne order by stat desc, nom asc")
     List<StatsByPersonneProjection> calculateStatsByPerson();
 }

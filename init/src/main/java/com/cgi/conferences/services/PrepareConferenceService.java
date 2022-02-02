@@ -12,8 +12,8 @@ public class PrepareConferenceService {
     public String prepareConference(ParentConferenceDTO parentConferenceDTO) {
         if (parentConferenceDTO instanceof KeyNoteDTO) {
             return ((KeyNoteDTO) parentConferenceDTO).prepareAmphi();
-        } else if (parentConferenceDTO instanceof AtelierDTO && ((AtelierDTO) parentConferenceDTO).getMateriel() == null) {
-            return ((AtelierDTO) parentConferenceDTO).prepareSalle() + ((AtelierDTO) parentConferenceDTO).demanderMateriel();
+        } else if (parentConferenceDTO instanceof AtelierDTO && ((AtelierDTO) parentConferenceDTO).getMateriel() != null) {
+            return ((AtelierDTO) parentConferenceDTO).prepareSalle() + "\n" + ((AtelierDTO) parentConferenceDTO).demanderMateriel();
         } else if (parentConferenceDTO instanceof AtelierDTO) {
             return ((AtelierDTO) parentConferenceDTO).prepareSalle();
         } else if (parentConferenceDTO instanceof ConferenceDTO) {

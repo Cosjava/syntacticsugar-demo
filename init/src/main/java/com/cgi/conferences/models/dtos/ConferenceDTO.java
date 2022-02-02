@@ -3,6 +3,7 @@ package com.cgi.conferences.models.dtos;
 import com.cgi.conferences.models.enums.TypeEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
