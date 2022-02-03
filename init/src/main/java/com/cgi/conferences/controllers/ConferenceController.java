@@ -2,6 +2,7 @@ package com.cgi.conferences.controllers;
 
 import com.cgi.conferences.models.dtos.ParentConferenceDTO;
 import com.cgi.conferences.models.dtos.PostConferenceDTO;
+import com.cgi.conferences.models.dtos.StatisticsDTO;
 import com.cgi.conferences.models.entities.ConferenceEntity;
 import com.cgi.conferences.models.mappers.ConferenceMapper;
 import com.cgi.conferences.models.projections.StatsByPersonneProjection;
@@ -15,12 +16,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.hateoas.Link;
+import org.springframework.hateoas.config.EnableHypermediaSupport;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -28,7 +31,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @Slf4j
 @RestController
-//@EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL_FORMS)
+@EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL_FORMS)
 public class ConferenceController {
 
     private static final String REL_CONFERENCES = "conferences";
@@ -120,10 +123,10 @@ public class ConferenceController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-/*    @GetMapping("/supervision")
+    @GetMapping("/supervision")
     public List<StatisticsDTO> getSupervision() {
         return statistiquesService.calculateStats();
-    }*/
+    }
 
     private ParentConferenceDTO addOneConfLinks(ParentConferenceDTO conf) {
         return conf.add(linkTo(methodOn(ConferenceController.class).getConferencePreparation(conf.getIdentifiant())).withRel(REL_PREPARATION),

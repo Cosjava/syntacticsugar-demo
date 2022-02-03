@@ -3,7 +3,6 @@ package com.cgi.conferences.services;
 import com.cgi.conferences.models.dtos.StatisticsDTO;
 import com.cgi.conferences.models.projections.StatsByPersonneProjection;
 import com.cgi.conferences.repositories.AssoPersonneConfRepository;
-import com.cgi.conferences.repositories.ConferenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,12 +18,12 @@ public class StatistiquesService {
     @Autowired
     private AssoPersonneConfRepository assoPersonneConfRepository;
 
- /*   public List<StatisticsDTO> calculateStats() {
+    public List<StatisticsDTO> calculateStats() {
         var statistics = assoPersonneConfRepository.calculateStatsByPerson().stream().collect(
                 groupingBy(StatsByPersonneProjection::getNbConferences,
                         TreeMap::new,
                         collectingAndThen(toList(), List::size)));
         return statistics.entrySet().stream().map(entry -> new StatisticsDTO(entry.getKey(), entry.getValue())).collect(Collectors.toList());
-    }*/
+    }
 
 }
