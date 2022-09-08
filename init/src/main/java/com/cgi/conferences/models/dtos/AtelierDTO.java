@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class AtelierDTO extends ConferenceDTO {
+public final class AtelierDTO extends ConferenceDTO {
     private String materiel;
 
     public String demanderMateriel() {
@@ -17,6 +17,8 @@ public class AtelierDTO extends ConferenceDTO {
     }
 
     public String prepareSalle() {
-        return "Vérifier la connectique.";
+        return "Allez dans la salle et positionner les chaises."
+                + "Vérifier la connectique."
+                + "Annoncer : \"Tout est prêt.\"";
     }
 }
