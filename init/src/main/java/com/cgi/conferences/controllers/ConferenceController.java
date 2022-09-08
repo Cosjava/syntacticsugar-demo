@@ -113,6 +113,7 @@ public class ConferenceController {
                         .andAffordance(afford(methodOn(ConferenceController.class).postConference(new PostConferenceDTO())))));
     }
 
+
     @GetMapping("/prepare/{id}")
     public ResponseEntity<String> getConferencePreparation(@PathVariable long id) {
         return conferenceRepository.findById(id)
