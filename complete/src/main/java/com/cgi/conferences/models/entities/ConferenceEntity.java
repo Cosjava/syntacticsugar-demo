@@ -32,9 +32,6 @@ public class ConferenceEntity implements Serializable {
     @Column(name = "TITRE")
     private String titre;
 
-    @Column(name = "DESCRIPTION")
-    private String description;
-
     @Column(name = "MATERIEL")
     private String materiel;
 

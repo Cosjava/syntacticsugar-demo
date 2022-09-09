@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.cgi'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '18'
 
 repositories {
 	mavenLocal()
@@ -23,8 +23,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	/* Utilisation de lombok et mapstruct*/
-	implementation "org.mapstruct:mapstruct:1.4.2.Final", "org.projectlombok:lombok:1.18.22"
-	annotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final", "org.projectlombok:lombok:1.18.22", "org.projectlombok:lombok-mapstruct-binding:0.2.0"
+	implementation "org.mapstruct:mapstruct:1.5.2.Final", "org.projectlombok:lombok:1.18.24"
+	annotationProcessor "org.mapstruct:mapstruct-processor:1.5.2.Final", "org.projectlombok:lombok:1.18.22", "org.projectlombok:lombok-mapstruct-binding:0.2.0"
 
 	/* H2 */
 	implementation 'com.h2database:h2'
@@ -33,6 +33,7 @@ dependencies {
 
 tasks.withType(JavaCompile) {
     options.compilerArgs = [
+			'--enable-preview',
             '-Amapstruct.defaultComponentModel=spring'
     ]
 }

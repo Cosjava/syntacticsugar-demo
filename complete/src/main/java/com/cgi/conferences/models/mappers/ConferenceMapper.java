@@ -5,10 +5,8 @@ import com.cgi.conferences.models.entities.ConferenceEntity;
 import com.cgi.conferences.models.entities.PersonneEntity;
 import com.cgi.conferences.models.enums.TrackEnum;
 import com.cgi.conferences.models.enums.TypeEnum;
-import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Mapper
 public interface ConferenceMapper {
@@ -28,15 +26,18 @@ public interface ConferenceMapper {
         return switch (typeEnum) {
             case CLOUD, PERFORMANCE, ARCHITECTURE -> TrackEnum.ARCHITECTE;
             case LANGUAGES, WEB, MACHINE_LEARNING -> TrackEnum.DEVELOPPEUR;
-            case null, DISCOVER -> TrackEnum.ALL;
+            case DISCOVER -> TrackEnum.ALL;
         };
     }
 
-    default ParentConferenceDTO convertToDTO(ConferenceEntity entity)  {
+    default ParentConferenceDTO convertToDTO(ConferenceEntity entity) {
         return switch (entity.getCategorie()) {
-            case CONFERENCE -> entityToConferenceDTO(entity);
-            case KEYNOTE -> entityToKeyNoteDTO(entity);
-            case ATELIER -> entityToAtelierDTO(entity);
+            case CONFERENCE:
+                yield entityToConferenceDTO(entity);
+            case KEYNOTE:
+                yield entityToKeyNoteDTO(entity);
+            case ATELIER:
+                yield entityToAtelierDTO(entity);
         };
     }
 }

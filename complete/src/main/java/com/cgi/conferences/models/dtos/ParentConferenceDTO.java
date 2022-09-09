@@ -9,11 +9,10 @@ import java.time.LocalDateTime;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public sealed abstract class ParentConferenceDTO extends RepresentationModel<ParentConferenceDTO> permits ConferenceDTO, KeyNoteDTO {
+public abstract sealed class ParentConferenceDTO extends RepresentationModel<ParentConferenceDTO> permits ConferenceDTO, KeyNoteDTO {
     private int identifiant;
     private PersonneDTO personne;
     private String titre;
-    private String description;
     private LocalDateTime debut;
     private LocalDateTime fin;
     private CategorieEnum categorie;
