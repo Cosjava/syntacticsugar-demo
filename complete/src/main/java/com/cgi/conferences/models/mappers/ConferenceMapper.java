@@ -26,7 +26,7 @@ public interface ConferenceMapper {
         return switch (typeEnum) {
             case CLOUD, PERFORMANCE, ARCHITECTURE -> TrackEnum.ARCHITECTE;
             case LANGUAGES, WEB, MACHINE_LEARNING -> TrackEnum.DEVELOPPEUR;
-            case DISCOVER -> TrackEnum.ALL;
+            case null, DISCOVER -> TrackEnum.ALL;
         };
     }
 
