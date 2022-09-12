@@ -6,6 +6,13 @@ public class RecordPattern {
         }
     }
 
+    private record Chien(String nom, int poids) {
+        public void aboyer(){
+            System.out.println("Ouaouaouf");
+        }
+
+    }
+
     private static String getInfos(Record record) {
         if (record instanceof Oiseau(String nomOiseau,String couleurOiseau) monOiseau) {
             return "L'oiseau est de type : " + nomOiseau + " et a pour couleur : " + couleurOiseau + " (" + monOiseau.toString() + ")";
@@ -16,10 +23,10 @@ public class RecordPattern {
         }
     }
 
-    private record Chien(String nom, int poids) {}
-
-    private static String getInfosChien(Record record) {
+    private static String getInfosSwitch(Record record) {
         return switch (record) {
+            case Oiseau(String nomOiseau,String couleurOiseau) monOiseau ->
+                    "L'oiseau est de type : " + nomOiseau + " et a pour couleur : " + couleurOiseau + " (" + monOiseau.toString() + ")";
             case Chien(String nomChien,int poids) monChien when poids > 10 -> //Attention le guarded pattern devient when
                     "ATTENTION: Le chien est de type : " + nomChien + " et il est pèse : " + poids + " kg (" + monChien.toString() + ")";
             case Chien(String nomChien,int poids) monChien -> //Le record est extrait dans les variables nomChien, poids et monChien
@@ -34,6 +41,7 @@ public class RecordPattern {
         var grosChien = new Chien("Labrador", 11);
         System.out.println(getInfos(oiseau));
         System.out.println(getInfos(chien));
+   //     System.out.println(getInfosSwitch(null));
   /**      System.out.println(getInfosSwitch(oiseau));
         System.out.println(getInfosSwitch(chien));
         System.out.println(getInfosSwitch(grosChien));**/
