@@ -31,6 +31,7 @@ public class RecordPattern {
                     "ATTENTION: Le chien est de type : " + nomChien + " et il est pèse : " + poids + " kg (" + monChien.toString() + ")";
             case Chien(String nomChien,int poids) monChien -> //Le record est extrait dans les variables nomChien, poids et monChien
                     "Le chien est de type : " + nomChien + " et il est pèse : " + poids + " kg (" + monChien.toString() + ")";
+            case null -> "Attention problème !"; //Si null et pas de case null => null pointer exception
             default -> "Type inconnu";
         };
     }
