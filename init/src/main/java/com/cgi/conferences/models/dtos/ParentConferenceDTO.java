@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class ParentConferenceDTO extends RepresentationModel<ParentConferenceDTO> {
+public abstract class ParentConferenceDTO extends RepresentationModel<ParentConferenceDTO> {
     private int identifiant;
     private List<PersonneDTO> personne;
     private String titre;
