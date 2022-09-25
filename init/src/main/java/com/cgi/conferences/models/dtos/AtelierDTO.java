@@ -17,9 +17,8 @@ public final class AtelierDTO extends ConferenceDTO {
     }
 
     public String prepareSalle() {
-        return """
-                Allez dans la salle et positionner les chaises.
-                Vérifier la connectique.
-                Annoncer : "Tout est prêt.".""";
+        return "Allez dans la salle et positionner les chaises." +
+                "Vérifier la connectique." +
+                "Annoncer : \"Tout est prêt.\".";
     }
 }
