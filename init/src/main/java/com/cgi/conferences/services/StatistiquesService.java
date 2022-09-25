@@ -19,11 +19,12 @@ public class StatistiquesService {
     private AssoPersonneConfRepository assoPersonneConfRepository;
 
     public List<StatisticsDTO> calculateStats() {
-        var statistics = assoPersonneConfRepository.calculateStatsByPerson().stream().collect(
-                groupingBy(StatsByPersonneProjection::getNbConferences,
-                        TreeMap::new,
-                        collectingAndThen(toList(), List::size)));
-        return statistics.entrySet().stream().map(entry -> new StatisticsDTO(entry.getKey(), entry.getValue())).collect(Collectors.toList());
+/**        var statistics = assoPersonneConfRepository.calculateStatsByPerson().stream().collect(
+ groupingBy(StatsByPersonneProjection::getNbConferences,
+ TreeMap::new,
+ collectingAndThen(toList(), List::size)));
+ return statistics.entrySet().stream().map(entry -> new StatisticsDTO(entry.getKey(), entry.getValue())).collect(Collectors.toList());**/
+        return null;
     }
 
 }

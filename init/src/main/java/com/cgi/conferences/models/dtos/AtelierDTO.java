@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public final class AtelierDTO extends ConferenceDTO {
+public class AtelierDTO extends ConferenceDTO {
     private String materiel;
 
     public String demanderMateriel() {

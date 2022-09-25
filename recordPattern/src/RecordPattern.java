@@ -42,10 +42,11 @@ public class RecordPattern {
         var grosChien = new Chien("Labrador", 11);
         System.out.println(getInfos(oiseau));
         System.out.println(getInfos(chien));
-   //     System.out.println(getInfosSwitch(null));
+
   /**      System.out.println(getInfosSwitch(oiseau));
         System.out.println(getInfosSwitch(chien));
         System.out.println(getInfosSwitch(grosChien));**/
+        //     System.out.println(getInfosSwitch(null));
 
     }
 
