@@ -4,25 +4,25 @@ public class RecordPattern {
     }
 
     private record Oiseau(String nom, String couleur, Nourriture food) {
-        public void chanter() {
-            System.out.println("Cuicuicui");
+        public String chanter() {
+            return "Cuicuicui";
         }
     }
 
     private record Chien(String nom, int poids) {
-        public void aboyer() {
-            System.out.println("Ouaouaouf");
+        public String aboyer() {
+            return "Ouaouaouf";
         }
-
     }
 
     private static String getInfos(Record record) {
         if (record instanceof Oiseau(String nomOiseau,String couleurOiseau,Nourriture(String t,float q) food) monOiseau) {
             return String.format("""
-                    L'oiseau est de type : %s et a pour couleur : %s et se nourrit de %s (%s kilos) [%s %s]""", nomOiseau, couleurOiseau, t, q, monOiseau, food);
+                    L'oiseau est de type : %s et a pour couleur : %s et se nourrit de %s (%s kilos) "%s" [%s]""", nomOiseau, couleurOiseau, t, q, monOiseau.chanter(), food);
         } else if (record instanceof Chien(String nomChien,int poids) monChien) {
             return String.format("""
-                    Le chien est de type : %s et il pèse : %s kg (%s)""", nomChien, poids, monChien);
+                    Le chien est de type : %s et il pèse : %s kg "%s"
+                    """, nomChien, poids, monChien.aboyer());
         } else {
             return "Type inconnu";
         }
@@ -32,11 +32,12 @@ public class RecordPattern {
         return switch (record) {
             case Oiseau(String nomOiseau,String couleurOiseau,Nourriture(String t,float q) food) monOiseau ->
                     String.format("""
-                            L'oiseau est de type : %s et a pour couleur : %s et se nourrit de %s (%s kilos) [%s %s]""", nomOiseau, couleurOiseau, t, q, monOiseau, food);
+                            L'oiseau est de type : %s et a pour couleur : %s et se nourrit de %s (%s kilos) "%s" [%s]""", nomOiseau, couleurOiseau, t, q, monOiseau.chanter(), food);
             case Chien(String nomChien,int poids) monChien when poids > 10 -> String.format("""
-                    ATTENTION GROS CHIEN : Le chien est de type : %s et il pèse : %s kg (%s)""", nomChien, poids, monChien);
+                    ATTENTION GROS CHIEN : Le chien est de type : %s et il pèse : %s kg "%s"
+                    """, nomChien, poids, monChien.aboyer());
             case Chien(String nomChien,int poids) monChien -> String.format("""
-                    Le chien est de type : %s et il pèse : %s kg (%s)""", nomChien, poids, monChien);
+                    Le chien est de type : %s et il pèse : %s kg (%s)""", nomChien, poids, monChien.aboyer());
             case null -> "Attention problème !";
             default -> "Type inconnu";
         };
